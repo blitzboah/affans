@@ -77,3 +77,8 @@ select f.rfam_acc, f.rfam_id, max(r.length) as max_length
 3. shell script
 
 - shell script is simple and shows output correctly most of the time, but have some flaws for values that are inside inverted commas having commas
+
+```
+# to run
+sh comp.sh
+```
