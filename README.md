@@ -4,6 +4,13 @@
 - stored into json file as it's better for data serialization, human-readability, also widely adopted
 - passing search input from cli itself for simplicity
 
+```
+#to run pls install uv
+pip install uv
+uv sync
+uv run extractor.py <search_input>
+``` 
+
 2. SQL
 
 a) How many types of Acacia plants can be found in the taxonomy table of the dataset?
