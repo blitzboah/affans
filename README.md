@@ -8,7 +8,7 @@
 
 a) How many types of Acacia plants can be found in the taxonomy table of the dataset?
 
-> MySQL [Rfam]> select count(species) from taxonomy where species like '%Acacia%';
+MySQL [Rfam]> select count(species) from taxonomy where species like '%Acacia%';
   +----------------+
   | count(species) |
   +----------------+
@@ -18,7 +18,7 @@ a) How many types of Acacia plants can be found in the taxonomy table of the dat
 
 b) Which type of wheat has the longest DNA sequence? (hint: use the rfamseq and the taxonomy tables)
 
-> MySQL [Rfam]> select t.species, r.description, r.length from rfamseq r
+MySQL [Rfam]> select t.species, r.description, r.length from rfamseq r
                 join taxonomy t on t.ncbi_id = r.ncbi_id
                 where t.species like '%wheat%'
                 order by r.length desc
@@ -32,7 +32,7 @@ b) Which type of wheat has the longest DNA sequence? (hint: use the rfamseq and 
 
 c) We want to paginate a list of the family names and their longest DNA sequence lengths (in descending order of length) where only families that have DNA sequence lengths greater than 1,000,000 are included. Give a query that will return the 9th page when there are 15 results per page. (hint: we need the family accession ID, family name and the maximum length in the results)
 
-> MySQL [Rfam]> select f.rfam_acc, f.rfam_id, max(r.length) as max_length
+MySQL [Rfam]> select f.rfam_acc, f.rfam_id, max(r.length) as max_length
                 from family f join full_region fr on f.rfam_acc = fr.rfam_acc
                 join rfamseq r on fr.rfamseq_acc = r.rfamseq_acc
                 where r.length > 1000000
